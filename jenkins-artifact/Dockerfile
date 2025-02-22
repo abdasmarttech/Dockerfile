@@ -31,7 +31,7 @@ USER jenkins
 EXPOSE 8080
 
 # Expose port 60000 for Jenkins agent connections
-EXPOSE 60000
+EXPOSE 70000
 
 # Start Jenkins
 CMD ["jenkins"]
