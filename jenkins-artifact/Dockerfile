@@ -10,6 +10,38 @@ USER root
 
 # Update the package list and install any necessary packages
 RUN apt-get update -y
+
+  # Install Apache2
+sudo apt install apache2 -y
+
+# Enable and start Apache2 service
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+# Install prerequisites for Docker
+sudo apt install -y ca-certificates curl gnupg
+
+# Add Docker’s official GPG key
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Set up Docker repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Update package list
+sudo apt update -y
+
+# Install Docker Engine
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Enable and start Docker service
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# Verify installation
+docker --version
+apache2 -v
     
 
 # Create a directory for Jenkins data (optional, for persistent storage)
