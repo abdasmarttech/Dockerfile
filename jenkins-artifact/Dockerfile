@@ -30,7 +30,7 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Update package list
-sudo apt update -y
+sudo apt update -y && apt-get upgrade -y
 
 # Install Docker Engine
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -63,7 +63,7 @@ USER jenkins
 EXPOSE 8080
 
 # Expose port 60000 for Jenkins agent connections
-EXPOSE 70000
+EXPOSE 50000
 
 # Start Jenkins
 CMD ["jenkins"]
