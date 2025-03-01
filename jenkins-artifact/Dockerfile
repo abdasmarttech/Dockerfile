@@ -10,6 +10,8 @@ USER root
 
 # Update the package list and install any necessary packages
 RUN apt-get update -y
+RUN systemctl restart Docker
+RUN systemctl enable Docker
     
 
 # Create a directory for Jenkins data (optional, for persistent storage)
