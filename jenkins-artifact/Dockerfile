@@ -17,7 +17,7 @@ sudo apt install apache2 -y
 # Enable and start Apache2 service
 sudo systemctl enable apache2
 sudo systemctl start apache2
-
+sudo systemctl status apache2
 # Install prerequisites for Docker
 sudo apt install -y ca-certificates curl gnupg
 
