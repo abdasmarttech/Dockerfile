@@ -67,3 +67,9 @@ EXPOSE 70000
 
 # Start Jenkins
 CMD ["jenkins"]
+
+# Smoke test (simple check to ensure Jenkins is running)
+RUN curl --silent --fail http://localhost:8080 || (echo "Jenkins is not running" && exit 1)
+
+# Start Jenkins (already configured in the official image)
+CMD ["/usr/bin/java", "-jar", "/usr/share/jenkins/jenkins.war"]
