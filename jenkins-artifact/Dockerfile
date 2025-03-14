@@ -67,3 +67,4 @@ EXPOSE 70000
 
 # Start Jenkins
 CMD ["jenkins"]
+sudo apt -y update jenkins
