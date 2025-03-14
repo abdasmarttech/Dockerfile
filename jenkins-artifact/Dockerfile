@@ -10,7 +10,7 @@ USER root
 
 # Update the package list and install any necessary packages
 RUN apt-get update -y
-    
+RUN apt-get upgrade -y
 
 # Create a directory for Jenkins data (optional, for persistent storage)
 RUN mkdir -p /var/jenkins_home
@@ -31,7 +31,7 @@ USER jenkins
 EXPOSE 8080
 
 # Expose port 60000 for Jenkins agent connections
-EXPOSE 60000
+EXPOSE 70000
 
 # Start Jenkins
 CMD ["jenkins"]
