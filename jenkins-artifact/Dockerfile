@@ -39,6 +39,9 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 sudo systemctl enable docker
 sudo systemctl start docker
 
+# Install Blue Ocean plugin
+RUN jenkins-plugin-cli --plugins blueocean
+
 # Verify installation
 docker --version
 apache2 -v
